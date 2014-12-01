@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'subscriptions/new'
+
+  get 'subscriptions/create'
+
+  get 'subscriptions/show'
+
   get 'plans/index'
 
   resources :lessons

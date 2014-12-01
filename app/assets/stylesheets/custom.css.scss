@@ -136,7 +136,7 @@ font-size: 35px;}
 
 
 .faq {
-  padding: 80px 0;
+  padding: 25px 0;
 }
 .faq .title {
   margin-bottom: 60px;
@@ -170,17 +170,40 @@ font-size: 35px;}
 }
 
 .about {
+  padding: 10px 0;
+}
+.about .title {
+  margin-bottom: 20px;
+}
+.about .item {
+  padding: 10px;
+  background: #f5f5f5;
+  margin-bottom: 30px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  border-bottom: 3px solid #d2e6c8;
+}
+
+
+.about {
   text-align: center;
 }
 .about h2 {
-  font-size: 22px;
+  font-size: 29px;
 }
-.about p {
+.about .item p {
   font-size: 18px;
-  padding: 20px;
+  padding: 10px;
   margin-left: 10px;
   margin-right: 10px;
-  line-height: 20px;
+  line-height: 25px;
+  color: #777777;
 }
 
 .pricing {
