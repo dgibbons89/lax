@@ -1,0 +1,53 @@
+<div class="container ">
+  <div class="panel-heading">
+    <h1>Sign up</h1>
+  </div>
+
+  <div class="panel-body">
+    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
+
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, autofocus: true, class: "form-control" %>
+      </div>
+        <div class="form-group">
+        <%= f.label :school %>
+        <%= f.text_field :school, autofocus: true, class: "form-control" %>
+      </div>
+    
+        <div class="form-group">
+        <%= f.label :birthday %>
+        <%= f.date_field :birthday, autofocus: true, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :position %>
+        <%= f.text_field :position, autofocus: true, class: "form-control" %>
+      </div>
+
+
+      <div class="form-group">
+        <%= f.label :email %>
+        <%= f.email_field :email, autofocus: true, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :password %>
+        <%= f.password_field :password, class: "form-control" %>
+      </div>
+
+   
+      <div>
+        <%= f.submit "Sign up", class: 'btn btn' %>
+      </div>
+
+    <% end %>
+  </div>
+ 
+
+
+ </div>
+  <div class="panel-footer">
+    <%= render "devise/shared/links" %>
+  </div>
+</div>
