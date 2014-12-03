@@ -1,11 +1,5 @@
 Rails.application.routes.draw do
-  get 'subscriptions/new'
 
-  get 'subscriptions/create'
-
-  get 'subscriptions/show'
-
-  get 'plans/index'
 
   resources :lessons
 
@@ -17,7 +11,7 @@ Rails.application.routes.draw do
   get 'pages/privacy'
   get 'users/index'
   resources :subscriptions
-  resources :plans
+  resources :charges
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

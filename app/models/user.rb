@@ -5,21 +5,26 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-    validates_presence_of :school,  :birthday, :position, :name
+  validates_presence_of :school, :position, :name
 
-   has_one :subscription
 
-         def create_a_customer
-         	token = self.stripe_card_token
-         	
-         	customer = Stripe::Customer.create(
-  				:card => token,
-  				:plan => 1,
-  				:email => self.email
-			)       	
-			#Need to note that User cc has gone through
-         end
 
-         
 
+def save_with_payment
+    if valid?
+      customer = Stripe::Customer.create(
+        :card => stripe_card_token,
+        :plan => "Monthlyplan", 
+        :email => email,
+        :description => "#{name} - ID: #{user_id}"
+      )
+      self.stripe_customer_token = customer.id
+      self.stripe_card_token = stripe_card_token
+      save!
+    end
+  rescue Stripe::InvalidRequestError => e
+    logger.error "Stripe error while creating customer: #{e.message}"
+    errors.add :base, "There was a problem with your credit card."
+    false
+  end
 end
