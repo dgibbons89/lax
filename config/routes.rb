@@ -1,17 +1,20 @@
 Rails.application.routes.draw do
-
+    devise_for :users, :controllers => { :registrations => 'registrations' }
+    devise_scope :user do
+      put 'update_plan', :to => 'registrations#update_plan'
+      put 'update_card', :to => 'registrations#update_card'
+    end
 
   resources :lessons
 
-  devise_for :users
+
   get 'pages/home'
 
   get 'pages/faq'
   get 'pages/terms'
   get 'pages/privacy'
   get 'users/index'
-  resources :subscriptions
-  resources :charges
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

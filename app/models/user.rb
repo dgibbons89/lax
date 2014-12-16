@@ -9,22 +9,78 @@ class User < ActiveRecord::Base
 
 
 
-
-def save_with_payment
-    if valid?
-      customer = Stripe::Customer.create(
-        :card => stripe_card_token,
-        :plan => "Monthlyplan", 
-        :email => email,
-        :description => "#{name} - ID: #{user_id}"
-      )
-      self.stripe_customer_token = customer.id
-      self.stripe_card_token = stripe_card_token
-      save!
+  def update_plan(role)
+    self.role_ids = []
+    self.add_role(role.name)
+    unless customer_id.nil?
+      customer = Stripe::Customer.retrieve(customer_id)
+      customer.update_subscription(:plan => role.name)
     end
-  rescue Stripe::InvalidRequestError => e
-    logger.error "Stripe error while creating customer: #{e.message}"
-    errors.add :base, "There was a problem with your credit card."
+    true
+  rescue Stripe::StripeError => e
+    logger.error "Stripe Error: " + e.message
+    errors.add :base, "Unable to update your subscription. #{e.message}."
     false
   end
+  
+  def update_stripe
+    return if email.include?(ENV['ADMIN_EMAIL'])
+    return if email.include?('@example.com') and not Rails.env.production?
+    if customer_id.nil?
+      if !stripe_token.present?
+        raise "Stripe token not present. Can't create account."
+      end
+      if coupon.blank?
+        customer = Stripe::Customer.create(
+          :email => email,
+          :description => name,
+          :card => stripe_token,
+          :plan => roles.first.name
+        )
+      else
+        customer = Stripe::Customer.create(
+          :email => email,
+          :description => name,
+          :card => stripe_token,
+          :plan => roles.first.name,
+          :coupon => coupon
+        )
+      end
+    else
+      customer = Stripe::Customer.retrieve(customer_id)
+      if stripe_token.present?
+        customer.card = stripe_token
+      end
+      customer.email = email
+      customer.description = name
+      customer.save
+    end
+    self.last_4_digits = customer.cards.data.first["last4"]
+    self.customer_id = customer.id
+    self.stripe_token = nil
+  rescue Stripe::StripeError => e
+    logger.error "Stripe Error: " + e.message
+    errors.add :base, "#{e.message}."
+    self.stripe_token = nil
+    false
+  end
+  
+  def cancel_subscription
+    unless customer_id.nil?
+      customer = Stripe::Customer.retrieve(customer_id)
+      unless customer.nil? or customer.respond_to?('deleted')
+        subscription = customer.subscriptions.data[0]
+        if subscription.status == 'active'
+          customer.cancel_subscription
+        end
+      end
+    end
+  rescue Stripe::StripeError => e
+    logger.error "Stripe Error: " + e.message
+    errors.add :base, "Unable to cancel your subscription. #{e.message}."
+    false
+  end
+  
+
+  
 end
