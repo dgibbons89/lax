@@ -8,4 +8,6 @@ class PagesController < ApplicationController
   end
   def privacy
   end
+  def academic
+  end
 end
