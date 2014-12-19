@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   validates_presence_of :school, :position, :name
+  has_one :subscription
 
 
 

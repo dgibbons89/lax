@@ -5,7 +5,7 @@ class Subscription < ActiveRecord::Base
   validates_presence_of :email
   attr_accessor :stripe_card_token
 
-  def save_with_payment
+	def save_with_payment
     if valid?
       customer = Stripe::Customer.create(
         :card => stripe_card_token,

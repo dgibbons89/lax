@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+    mount StripeEvent::Engine => '/stripe'
     devise_for :users, :controllers => { :registrations => 'registrations' }
     devise_scope :user do
       put 'update_plan', :to => 'registrations#update_plan'
@@ -6,6 +8,7 @@ Rails.application.routes.draw do
     end
 
   resources :lessons
+  resources :users
 
 
   get 'pages/home'

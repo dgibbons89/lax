@@ -18,6 +18,7 @@ gem 'cancan'
 gem 'figaro'
 gem 'rolify'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+gem 'stripe_event'
 gem 'masonry-rails', '~>0.2.0'
 gem 'owlcarousel-rails'
 
