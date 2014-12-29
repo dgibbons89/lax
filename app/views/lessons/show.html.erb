@@ -9,12 +9,27 @@
   <strong>Instructor:</strong>
   <%= @lesson.instructor %>
 </p>
+
+  
+
+      <div class="center">
+        <!-- <div class="embed-container"> -->
+          <div id="<%= "wistia_#{@lesson.url}" %>" class="wistia_embed">&nbsp;</div>
+          <script charset="ISO-8859-1" src="//fast.wistia.com/assets/external/E-v1.js"></script>
+          <script type="text/javascript">
+            wistiaEmbed = Wistia.embed("<%= @lesson.url %>", {
+              videoFoam: true,
+              videoQuality: "hd-only",
+              playerPreference: "html5",
+              trackEmail: "<%= current_user.email %>"
+            });
+          </script>
+        <!-- </div> -->
+      </div>
+
 <p>
   <strong>Description:</strong>
   <%= @lesson.description %>
 </p>
-
-
-
 
 <%= link_to 'Back', lessons_path %>

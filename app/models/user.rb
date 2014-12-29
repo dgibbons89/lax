@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
 
   validates_presence_of :school, :position, :name
   has_one :subscription
+  attr_accessor :stripe_card_token
 
 
 
