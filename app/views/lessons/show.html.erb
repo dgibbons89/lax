@@ -1,14 +1,4 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @lesson.title %>
-</p>
-
-<p>
-  <strong>Instructor:</strong>
-  <%= @lesson.instructor %>
-</p>
 
   
 
@@ -25,11 +15,11 @@
             });
           </script>
         <!-- </div> -->
-      </div>
+ </div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @lesson.description %>
-</p>
+<h3><%= @lesson.title %></h3>
+<h4><%= @lesson.instructor %></h4>
+<p><%= @lesson.description %></p>
 
-<%= link_to 'Back', lessons_path %>
+<%= link_to 'Back', lessons_path, class: "btn btn-link" %>
+     

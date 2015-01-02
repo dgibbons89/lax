@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
 
-    mount StripeEvent::Engine => '/stripe'
-    devise_for :users, :controllers => { :registrations => 'registrations' }
-    devise_scope :user do
-      put 'update_plan', :to => 'registrations#update_plan'
-      put 'update_card', :to => 'registrations#update_card'
-    end
+  mount StripeEvent::Engine => '/stripe-webhooks'
+
+  devise_for :users, :controllers => { :registrations => 'registrations'}
+  devise_scope :user do
+    # get 'signup/free', to: 'users/registrations#new_free'
+    get 'subscribe', to: 'registrations#subscribe'
+    put 'update_plan', to: 'registrations#update_plan'
+    put 'update_card', to: 'registrations#update_card'
+    put 'update_both', to: 'registrations#update_both'
+    put 'cancel_plan', to: 'registrations#cancel_plan'
+  end
 
   resources :lessons
   resources :users

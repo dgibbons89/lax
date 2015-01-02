@@ -105,15 +105,15 @@
         <div class="content">
             <h3 class="title">Private Lessons</h3>
             <p>Individual &amp; Group lessons with instructors </br>
-            Film review of games &amp; tournaments </p>  
+            </p>  
         </div><!--//content-->               
       </div><!--//item-->
   </div>
     <div class="col-md-6 col-sm-6 col-xs-12 text-center">
         <div class="item">
         <div class="content">
-          <h3 class="title">Volunteer Opportunities</h3>
-          <p>Organized opportunities to volunteer with  local charities to promote personal growth and self esteem</br>
+          <h3 class="title">Performance Review</h3>
+          <p>Film review of games &amp; tournaments </br>
            </p>   
         </div><!--//content-->               
       </div><!--//item-->
@@ -173,7 +173,7 @@
              <div class="price-cols row">
                 <h2 class="title text-center">Choose your plan today</h2>
                 <div class="items-wrapper col-md-10 col-sm-12 col-xs-12 col-md-offset-1 col-sm-offset-0 col-xs-offset-0">
-                    <div class="item price-1 col-md-4 col-sm-4 col-xs-12 text-center">
+                    <div class="item price-1 col-md-6 col-sm-4 col-xs-12 text-center">
                         <div class="item-inner">
                             <div class="heading">
                             <h3 class="title">Monthly</h3>
@@ -189,47 +189,26 @@
                             </div><!--//content-->
                         </div><!--//item-inner-->
                     </div><!--//item--> 
-                    
-                    <div class="item price-2 col-md-4 col-sm-4 col-xs-12 text-center best-buy">
+                    <div class="item price-1 col-md-6 col-sm-4 col-xs-12 text-center">
                         <div class="item-inner">
                             <div class="heading">
                             <h3 class="title">Yearly</h3>
-                                <p class="price-figure"><span class="price-figure-inner"><span class="currency">$</span><span class="number">16</span><br /><span class="unit">per month</span></span></p>
+                                <p class="price-figure"><span class="price-figure-inner"><span class="currency">$</span><span class="number">16</span><br /><span class="unit"> per month</span></span></p>
                             </div>
                             <div class="content">
                                 <ul class="list-unstyled feature-list">
-                                    <li><i class="fa fa-check"></i>Billed Yearly</li>
-                                    <li><i class="fa fa-check"></i>20% Off!</li>
-                                    <li><i class="fa fa-check"></i>This plan saves you $48</li>
-                                   
-                                    
+                                    <li><i class="fa fa-check"></i>Billed Yearly- 20% off</li>
+                             
                                 </ul>
-                               <%= link_to "Subscribe", new_user_registration_path(:plan => 'annual'), class: "btn btn-default btn-lg" %>
+                                <%= link_to "Subscribe", new_user_registration_path(:plan => 'yearly'), class: "btn btn-default btn-lg" %>
+   
                             </div><!--//content-->
-                            <div class="ribbon">
-                                <div class="text">Popular</div>
-                            </div><!--//ribbon-->
                         </div><!--//item-inner-->
-                    </div><!--//item-->  
+                    </div><!--//item-->
                     
-                    <div class="item price-3 col-md-4 col-sm-4 col-xs-12 text-center">
-                        <div class="item-inner">
-                            <div class="heading">
-                                <h3 class="title">Semiannual</h3>
-                                <p class="price-figure"><span class="price-figure-inner"><span class="currency">$</span><span class="number">18</span><br /><span class="unit">per month</span></span></p>
-                            </div>
-                            <div class="content">
-                                <ul class="list-unstyled feature-list">
-                                    <li><i class="fa fa-check"></i>Billed Semiannually</li>
-                                    <li><i class="fa fa-check"></i>10% Off!</li>
-                                    <li><i class="fa fa-check"></i>This plan saves you $24</li>
-                                                                    
-                                </ul>
-                                <%= link_to "Subscribe", new_user_registration_path(:plan => 'semiannual'), class: "btn btn-default btn-lg" %>
-                                
-                            </div><!--//content-->
-                        </div><!--//item-inner-->
-                    </div><!--//item-->  
+       
+                    
+
                 </div><!--//items-wrapper-->                   
             </div><!--//row-->
         </div><!--//container-->
