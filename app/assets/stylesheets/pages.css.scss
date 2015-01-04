@@ -41,23 +41,23 @@
   }
   section.module.parallax-1 {
     
-    background-image: url("rylax4.jpg");
+    background-image: url(image-path('rylax4.jpg'));
   }
   section.module.parallax-2 {
-    background-image: url("dglax3.jpg");
+    background-image: url(image-path('dglax3.jpg'));
   }
   section.module.parallax-3 {
-    background-image: url("rylax1.jpg");
+    background-image: url(image-path('rylax1.jpg'));
   }
    section.module.parallax-4 {
     
-    background-image: url("dglax4.jpg");
+    background-image: url(image-path('dglax4.jpg'));
   }
    section.module.parallax-5 {
-    background-image: url("rylax3.jpg");
+    background-image: url(image-path('rylax3.jpg'));
   }
    section.module.parallax-6 {
-    background-image: url("dglax1.jpg");
+    background-image: url(image-path('dglax1.jpg'));
   }
 
   @media all and (min-width: 600px) {
