@@ -1,6 +1,8 @@
 // Place all the styles related to the pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
   section.module:last-child {
     margin-bottom: 0;
   }
@@ -41,22 +43,28 @@
   }
   section.module.parallax-1 {
     
-    background-image: url(image-path('rylax4.jpg'));
+    background-image: url(image-path('Teloslax.jpg'));
+    background-position: 90% 90%; 
+
   }
   section.module.parallax-2 {
-    background-image: url(image-path('dglax3.jpg'));
+    
+    background-image: url(image-path('rylax4.jpg'));
   }
   section.module.parallax-3 {
+    background-image: url(image-path('dglax3.jpg'));
+  }
+  section.module.parallax-4 {
     background-image: url(image-path('rylax1.jpg'));
   }
-   section.module.parallax-4 {
+   section.module.parallax-5 {
     
     background-image: url(image-path('dglax4.jpg'));
   }
-   section.module.parallax-5 {
+   section.module.parallax-6 {
     background-image: url(image-path('rylax3.jpg'));
   }
-   section.module.parallax-6 {
+   section.module.parallax-7 {
     background-image: url(image-path('dglax1.jpg'));
   }
 
