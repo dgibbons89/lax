@@ -9,6 +9,7 @@
         <div class="panel-body"> 
           <p><strong>Title: </strong><%= lesson.title %></p>
           <p><strong>Instructor:</strong><%= lesson.instructor %></p>
+          <p><strong>Music: </strong><%= lesson.music %></p>
           <p><strong>Description:</strong><%= lesson.description %></p>
           <%= link_to "Watch Lesson", lesson_path(lesson), class: "btn btn-default btn-lg" %>  
           <%= link_to 'Destroy', lesson, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn-default" %>
