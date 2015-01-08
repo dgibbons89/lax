@@ -1,22 +1,19 @@
-   <footer class="footer">
-        <div class="container-center">
-           
-            <ul class="links list-inline">
-                <li><%= link_to "About", pages_faq_path %></li>
-                <li><%= link_to "Terms of Use", pages_terms_path %></li>
-                <li><%= link_to "Privacy", pages_privacy_path %></li>
-            </ul>
-        </div>
- 
 
 
 
-	<div class="footer-content-container-slim container-semi-opaque">
-			<div class="container page-container">
-				<div class="row text-muted text-center row-space-8 row-space-top-6 copy-wrap">
-					<div id="copyright">© Telos Lax 2014</div>
-				</div>
-			</div>
+<footer class="footer">
+	<div class="container">
+		<div class="footer-links center">
+                <%= link_to "About", pages_faq_path %>
+                <%= link_to "Terms of Use", pages_terms_path %>
+                <%= link_to "Privacy", pages_privacy_path %>
+			
+			<%= mail_to "dg@teloslax.com" do %>
+			  Contact
+			<% end %>
 		</div>
 
-		   </footer><!--//footer-->
+		<p class="copyright center">Copyright © 2014 TelosLax</p>
+	</div>
+</footer>
+
