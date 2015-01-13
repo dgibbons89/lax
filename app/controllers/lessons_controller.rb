@@ -38,6 +38,7 @@ class LessonsController < ApplicationController
   end
 
   def destroy
+    authorize! :destroy, @user, :message => 'Not authorized as an administrator.'
     @lesson.destroy
     redirect_to lessons_url
   end

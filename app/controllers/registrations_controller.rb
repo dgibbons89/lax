@@ -3,6 +3,13 @@ class RegistrationsController < Devise::RegistrationsController
   before_action :set_plan, only: [:new, :create]
   before_action :authenticate_user!, except: [:new, :create]
 
+
+ 
+  def index
+    authorize! :index, @user, :message => 'Not authorized as an administrator.'
+    @users = User.all
+  end
+
 def new
     if @plan
       Stripe.api_key = ENV["STRIPE_API_KEY"]
