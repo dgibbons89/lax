@@ -10,4 +10,8 @@ class PagesController < ApplicationController
   end
   def academic
   end
-end
+  def film
+  end
+    
+  end
+

@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   get 'pages/faq'
   get 'pages/terms'
   get 'pages/privacy'
+  get 'pages/film'
   get 'users/index'
 
 
