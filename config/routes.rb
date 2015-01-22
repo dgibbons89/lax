@@ -4,29 +4,32 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   mount StripeEvent::Engine => '/stripe-webhooks'
 
-  devise_for :users, :controllers => { :registrations => 'registrations'}
+
+
+  devise_for :users, :controllers => { :registrations => 'users/registrations'}
   devise_scope :user do
     # get 'signup/free', to: 'users/registrations#new_free'
-    get 'subscribe', to: 'registrations#subscribe'
-    put 'update_plan', to: 'registrations#update_plan'
-    put 'update_card', to: 'registrations#update_card'
-    put 'update_both', to: 'registrations#update_both'
-    put 'cancel_plan', to: 'registrations#cancel_plan'
+    get 'subscribe', to: 'users/registrations#subscribe'
+    put 'update_plan', to: 'users/registrations#update_plan'
+    put 'update_card', to: 'users/registrations#update_card'
+    put 'update_both', to: 'users/registrations#update_both'
+    put 'cancel_plan', to: 'users/registrations#cancel_plan'
   end
 
   resources :lessons
-  resources :users
+  
 
 
 
-  get 'pages/home'
-  get 'pages/academic'
+  get 'pages/home' => 'pages#home'
+  get 'pages/academic' => 'pages#academic'
 
-  get 'pages/faq'
-  get 'pages/terms'
-  get 'pages/privacy'
-  get 'pages/film'
+  get 'pages/faq' => 'pages#faq'
+  get 'pages/terms' => 'pages#terms'
+  get 'pages/privacy' => 'pages#privacy'
+  get 'pages/film' => 'pages#film'
   get 'users/index'
+  get 'pricing' => 'pages#pricing'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

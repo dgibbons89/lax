@@ -1,14 +1,8 @@
-class RegistrationsController < Devise::RegistrationsController
+class Users::RegistrationsController < Devise::RegistrationsController
+
   before_action :configure_permitted_parameters
   before_action :set_plan, only: [:new, :create]
   before_action :authenticate_user!, except: [:new, :create]
-
-
- 
-  def index
-    authorize! :index, @user, :message => 'Not authorized as an administrator.'
-    @users = User.all
-  end
 
 def new
     if @plan
@@ -17,7 +11,7 @@ def new
         Stripe::Plan.retrieve(@plan)
         super
       rescue => e
-        redirect_to pages_home_path, notice: "Nice try! You'll need to choose from one of the plans below :-)"
+        redirect_to pricing_path, notice: "Nice try! You'll need to choose from one of the plans below :-)"
       end
     else
       super
@@ -153,11 +147,12 @@ def new
   end
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up) << :stripe_card_token
+    
     devise_parameter_sanitizer.for(:sign_up) << :name
-    devise_parameter_sanitizer.for(:sign_up) << :plan
     devise_parameter_sanitizer.for(:sign_up) << :school
     devise_parameter_sanitizer.for(:sign_up) << :position
+    devise_parameter_sanitizer.for(:sign_up) << :plan
+    devise_parameter_sanitizer.for(:sign_up) << :stripe_card_token
     devise_parameter_sanitizer.for(:account_update) << :name
     devise_parameter_sanitizer.for(:account_update) << :stripe_card_token
     devise_parameter_sanitizer.for(:account_update) << :plan

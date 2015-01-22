@@ -1,15 +1,17 @@
-class PurchaseMailer < ActionMailer::Base
-	
-	default from: "TelosLax <dg@TelosLax.com>"
+class UserMailer < ActionMailer::Base
+  default from: "Telos Lax <dg@teloslax.com>"
 
-	 # Invoice payment succeeded
+
+
+  
+  # Invoice payment succeeded
   def invoice_payment_succeeded(recipient_email, recipient_name, amount)
     @recipient_name = recipient_name
     @amount = amount
     
     # Email user
     email_with_name = "#{recipient_name} <#{recipient_email}>"
-    mail to: email_with_name, subject: "TelosLax payment notification"
+    mail to: email_with_name, subject: "Telos Lax payment notification"
   end
   
   # Invoice payment failed
@@ -18,29 +20,34 @@ class PurchaseMailer < ActionMailer::Base
     
     # Email user
     email_with_name = "#{recipient_name} <#{recipient_email}>"
-    mail to: email_with_name, subject: "TelosLax payment failed"
+    mail to: email_with_name, subject: "Telos Lax payment failed"
     
     # Email Susie
-    mail to: "Dean <dg@TelosLax.com>", subject: "Automatic unsubscribe: #{recipient_email}"
+    mail to: "Dean Gibbons <dg@teloslax.com>", subject: "Automatic unsubscribe: #{recipient_email}"
   end
   
-  # Access ended
-  def access_ended(recipient_email, recipient_name)
-    @recipient_name = recipient_name
-    email_with_name = "#{recipient_name} <#{recipient_email}>"
-    mail to: email_with_name, subject: "Your TelosLax access has ended"
-  end
+
   
   # Subscription cancelled
   def subscription_cancelled(recipient_email, recipient_name)
     @recipient_name = recipient_name
     email_with_name = "#{recipient_name} <#{recipient_email}>"
-    mail to: email_with_name, subject: "TelosLax subscription cancelled"
+    mail to: email_with_name, subject: "Telos Lax subscription cancelled"
   end
   
   
 
 
+
+
+  # SUSIE NOTIFICATIONS
+  # New free membership is created
+  def new_user(user_name, email)
+    @user_name = user_name
+    @email = email
+
+    mail to: "Dean Gibbons <dg@teloslax.com>", subject: "Free User: #{email}"
+  end
 
   # New paid subscription is created
   def new_subscription(user_name, email, plan)
@@ -48,7 +55,7 @@ class PurchaseMailer < ActionMailer::Base
     @email = email
     @plan = plan
 
-    mail to: "Dean <dg@TelosLax.com>", subject: "#{plan.capitalize} User: #{email}"
+    mail to: "Dean Gibbons <dg@teloslax.com>", subject: "#{plan.capitalize} User: #{email}"
   end
 
   # Free user converts to paid subscription
@@ -57,7 +64,7 @@ class PurchaseMailer < ActionMailer::Base
     @email = email
     @plan = plan
 
-    mail to: "Dean <dg@TelosLax.com>", subject: "Convert to #{plan}: #{email}"
+    mail to: "Dean Gibbons <dg@teloslax.com>", subject: "Convert to #{plan}: #{email}"
   end
 
   # User manually changes subscription plan
@@ -66,7 +73,7 @@ class PurchaseMailer < ActionMailer::Base
     @email = email
     @plan = plan
 
-  mail to: "Dean <dg@TelosLax.com>", subject: "Subscription changed to #{plan}"
+   mail to: "Dean Gibbons <dg@teloslax.com>", subject: "Subscription changed to #{plan}"
   end
 
   # User manually cancelled subscription
@@ -75,6 +82,6 @@ class PurchaseMailer < ActionMailer::Base
     @plan = plan
     @email = email
 
-    mail to: "Dean <dg@TelosLax.com>", subject: "#{user_name} unsubscribed from the #{plan} plan"
+    mail to: "Dean Gibbons <dg@teloslax.com>", subject: "#{user_name} unsubscribed from the #{plan} plan"
   end
 end

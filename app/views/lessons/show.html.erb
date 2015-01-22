@@ -1,5 +1,6 @@
+<div class="max-width has-padding center">
 <p> If the video doesn't display right away, just refresh the page </p>
-<div class="center">
+
         <!-- <div class="embed-container"> -->
           <div id="<%= "wistia_#{@lesson.url}" %>" class="wistia_embed">&nbsp;</div>
           <script charset="ISO-8859-1" src="//fast.wistia.com/assets/external/E-v1.js"></script>
@@ -12,14 +13,15 @@
             });
           </script>
         <!-- </div> -->
- </div>
+ <div class="lessons">
 
-<h1><%= @lesson.title %></h1>
-<h2><%= @lesson.instructor %></h2>
-<h4><%= @lesson.description %></h4>
-<h5>Music: <%= @lesson.music %> </h4>
+<h2><%= @lesson.title %></h1>
+<h3><%= @lesson.instructor %></h3>
+<h5><%= @lesson.description %></h5>
+<h5>Music: <%= @lesson.music %> </h5>
 <br>
 <br>
+</div>
 
 <%= link_to "Back to Video Library", lessons_path, class: "btn btn-default btn-lg" %> 
-     
+</div>     

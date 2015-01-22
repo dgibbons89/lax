@@ -1,3 +1,5 @@
+
+
 <%= form_for(:user, :url => update_both_path, :html => {id: "payment_form", :method => :put}) do |f| %>
 
   <div id="plan_error" class="alert alert-danger alert-dismissable" style="display:none">
@@ -26,7 +28,7 @@
   <div id="stripe_form">
     <div class="form-group">
       <div class="row">
-          <%= image_tag "https://dl.dropboxusercontent.com/s/qq57gvp6m3qfjra/lock.png" %>
+          
           <h3>Secure credit card payment<br>
           <span id="jargon">This is a secure 128-bit SSL encrypted payment.</span></h3>
       </div>
@@ -71,5 +73,5 @@
     </div>
   </div>
 
-  <%= f.submit "Subscribe", class: "btn btn-default btn-lg" %>
+  <%= f.submit "Subscribe", class: "btn btn-primary" %>
 <% end %>
