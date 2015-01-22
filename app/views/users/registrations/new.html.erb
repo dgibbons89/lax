@@ -96,6 +96,45 @@
       </div>
 
     <% end %>
+    <h3><small>By signing up you agree to our <a href="#" data-toggle="modal" data-target="#terms-modal" class="btn-default">Terms of Use</a> and <a href="#" data-toggle="modal" data-target="#privacy-modal" class="btn-default">Privacy Policy</a></small></h3>
+
+<div class="modal fade" id="terms-modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Terms of Use</h4>
+      </div>
+      <div class="modal-body clearfix">
+            <div id="modal-left" class="pull-left">
+                <p><strong>Member Acceptance</strong></p>
+                <p> <%= render 'pages/terms' %></p>
+            </div>  
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="privacy-modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Privacy Policy</h4>
+      </div>
+      <div class="modal-body clearfix">
+            <div id="modal-left" class="pull-left">
+                <p> <%= render 'pages/privacy' %></p>
+            </div>
+           
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
   </div>
   <div class='panel-footer'>
     <%= render "devise/shared/links" %>
