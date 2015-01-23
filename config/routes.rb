@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+
+  resources :charges
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   mount StripeEvent::Engine => '/stripe-webhooks'
@@ -17,6 +19,7 @@ Rails.application.routes.draw do
   end
 
   resources :lessons
+
   
 
 
