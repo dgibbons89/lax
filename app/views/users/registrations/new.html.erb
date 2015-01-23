@@ -15,7 +15,7 @@
   <!-- New section -->
   <script type="text/javascript">
     <!-- Fill in your publishable key -->
-    Stripe.setPublishableKey('YOUR_PUBLISHABLE_KEY');
+    Stripe.setPublishableKey(ENV['STRIPE_PUBLIC_KEY']);
 
    var stripeResponseHandler = function(status, response) {
      var $form = $('#payment-form');
@@ -106,36 +106,37 @@
       <% if @user.stripe_card_token.present? %>
         Credit Card is on File
       <% else %>
-<div class="form-group">
-     <div class="row">
-        <div class="col-lg-4"> 
-          <%= label_tag :card_number, "Credit Card Number" %>
-          <%= text_field_tag :card_number, nil, name: nil, class: 'form-control' %>
-        </div>
-      </div>
-    </div>
-<div class="form-group">
-     <div class="row">
-        <div class="col-lg-3"> 
-          <%= label_tag :card_code, "Security Code on Card (CVV)" %>
-        <%= text_field_tag :card_code, nil, name: nil, class: 'form-control' %>
+        <div class="form-group">
+             <div class="row">
+                <div class="col-lg-4"> 
+                  <%= label_tag :card_number, "Credit Card Number" %>
+                  <%= text_field_tag :card_number, nil, name: nil, class: 'form-control' %>
+                </div>
+              </div>
+            </div>
+      <div class="form-group">
+           <div class="row">
+              <div class="col-lg-3"> 
+                <%= label_tag :card_code, "Security Code on Card (CVV)" %>
+              <%= text_field_tag :card_code, nil, name: nil, class: 'form-control' %>
+                </div>
+            </div>
           </div>
-      </div>
-    </div>
-    <div class="form-group">
-     <div class="row">
-        <div class="col-lg-4"> 
-        <%= label_tag :card_month, "Card Expiration" %>
-        <%= select_month nil, {add_month_numbers: true}, {name: nil, id: "card_month"} %>
-        <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, id: "card_year"} %>
-        </div>
-      </div>
-    </div>
-        
+            <div class="form-group">
+             <div class="row">
+                <div class="col-lg-4"> 
+                <%= label_tag :card_month, "Card Expiration" %>
+                <%= select_month nil, {add_month_numbers: true}, {name: nil, id: "card_month"} %>
+                <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, id: "card_year"} %>
+                </div>
+              </div>
+            </div>
+                
       <% end %>
-</div>
+
       <div>
         <%= f.submit "Sign up", class: 'btn btn-primary' %>
+      </div>
       </div>
 
     <% end %>
