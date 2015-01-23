@@ -23,6 +23,8 @@ gem 'stripe_event'
 gem 'masonry-rails', '~>0.2.0'
 gem 'wistia-api', '~> 0.2.3'
 gem 'activeadmin', github: 'gregbell/active_admin'
+###add email in dev###
+gem 'letter_opener', group: :development
 
 gem 'sdoc', '~> 0.4.0',          group: :doc
 

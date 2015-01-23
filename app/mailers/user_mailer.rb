@@ -1,8 +1,12 @@
 class UserMailer < ActionMailer::Base
+  layout 'user_mailer'
   default from: "Telos Lax <dg@teloslax.com>"
 
 
-
+  def new_user user
+    @user = user
+    mail to: user.email, subject: "Thanks for signing up!"
+  end
   
   # Invoice payment succeeded
   def invoice_payment_succeeded(recipient_email, recipient_name, amount)
@@ -42,12 +46,7 @@ class UserMailer < ActionMailer::Base
 
   # SUSIE NOTIFICATIONS
   # New free membership is created
-  def new_user(user_name, email)
-    @user_name = user_name
-    @email = email
 
-    mail to: "Dean Gibbons <dg@teloslax.com>", subject: "Free User: #{email}"
-  end
 
   # New paid subscription is created
   def new_subscription(user_name, email, plan)
