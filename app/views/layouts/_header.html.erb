@@ -15,12 +15,12 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse navbar-ex1-collapse">
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Home", root_path %></li>
-        <li><%= link_to "About", pages_faq_path %></li>
+        
+        
 
         <% if user_signed_in? %>
-          <li><%= link_to "Academic", pages_academic_path %></li>
-          <li><%= link_to "Film", pages_film_path %></li>
+          <li><%= link_to "Academic", academic_path %></li>
+          <li><%= link_to "Film", film_path %></li>
           <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">
              <%= current_user.name %> <span class="caret"></span>
@@ -32,7 +32,7 @@
           </ul>
         </li>
         <% else %>
-          
+          <li><%= link_to "About", pages_faq_path %></li>
           <li><%= link_to "Sign in", new_user_session_path %></li>
         <% end %>
       </ul>

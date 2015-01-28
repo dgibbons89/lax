@@ -1,10 +1,9 @@
 class Users::RegistrationsController < Devise::RegistrationsController
-
   before_action :configure_permitted_parameters
   before_action :set_plan, only: [:new, :create]
   before_action :authenticate_user!, except: [:new, :create]
 
-def new
+  def new
     if @plan
       Stripe.api_key = ENV["STRIPE_API_KEY"]
       begin
@@ -46,7 +45,7 @@ def new
 
       if resource.save && resource.save_with_payment
         # Send new subscription email notification
-        
+        UserMailer.new_subscription(resource.name, resource.email, @plan).deliver
 
         yield resource if block_given?
         if resource.active_for_authentication?
@@ -143,18 +142,15 @@ def new
   end
 
   def after_sign_up_path_for(resource)
-    root_path
+    thanks_path
   end
 
   def configure_permitted_parameters
-    
+    devise_parameter_sanitizer.for(:sign_up) << :stripe_card_token
     devise_parameter_sanitizer.for(:sign_up) << :name
+    devise_parameter_sanitizer.for(:sign_up) << :plan
     devise_parameter_sanitizer.for(:sign_up) << :school
     devise_parameter_sanitizer.for(:sign_up) << :position
-    devise_parameter_sanitizer.for(:sign_up) << :plan
-    devise_parameter_sanitizer.for(:sign_up) << :stripe_card_token
-    devise_parameter_sanitizer.for(:sign_up) << :email
-    devise_parameter_sanitizer.for(:sign_up) << :password
     devise_parameter_sanitizer.for(:account_update) << :name
     devise_parameter_sanitizer.for(:account_update) << :stripe_card_token
     devise_parameter_sanitizer.for(:account_update) << :plan

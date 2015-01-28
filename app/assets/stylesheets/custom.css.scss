@@ -34,27 +34,19 @@ height: 1px;
 #push {
   height: 300px;
 }
-
-.maincontainer {
-  margin-top: 50px;
+.registration .panel-heading {
+  background-color: #37ba67;
 }
+.panel .panel-heading {
+    background-color: #37ba67;
+}
+
+
 .masthead {
 text-align: center;
 margin-bottom: 40px;
 }
-.signup-heading{
-font-family: "MarkPro-Bold", Helvetica, Arial, sans-serif;
-font-weight: 400;
-line-height: 1.1;
-color: inherit;
-font-size: 45px;
-}
-.signup-subheading {
-font-family: "TradeGothicLTPro", "Helvetica Neue", Helvetica, Arial, sans-serif;
-font-size: 30px;
-margin-top: 10px;
-color: #a6a6a6;
-} 
+
 .progress-bar {
 float: left;
 width: 0%;
@@ -72,14 +64,7 @@ transition: width 0.6s ease;
 }
 
 
-.registration .panel-heading {
-  background-color: #37ba67;
-}
-  #stripe_form {
-    background-color: #f4f7fc;
-    padding: 15px;
-    border-radius: 5px;
-}
+
 
 .ideas{
   

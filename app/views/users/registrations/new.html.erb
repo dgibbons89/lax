@@ -1,149 +1,71 @@
-  <section class="registration">
-    <div class="container">
-      <div class="col-md-12">
-
+<div class="max-wide has-padding">
 <div class='panel panel-default'>
 
   <div class='panel-heading'>
-    <h2>Telos Lax <%= @plan.capitalize %> Subscription</h2>
+    <h2>Sign up</h2>
   </div>
-  
 
 
-  <div class='panel-body'>
-    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-      <%= devise_error_messages! %>
 
-      <%= f.hidden_field :stripe_card_token %>
-        <%= f.hidden_field :plan, value: @plan %>
+            <div class="panel-body">
+              <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+                <%= devise_error_messages! %>
+                <%= f.hidden_field :plan, value: @plan %>
 
-      <div id='stripe_error' class="alert alert-info" style='display:none'>
+                <%= f.hidden_field :stripe_card_token %>
+
+               <div id='stripe_error' class="alert alert-info" style='display:none'>
       </div>
 
-<div class="form-group">
-     <div class="row">
-        <div class="col-lg-5">      
-        <%= f.label :name %>
+      <div class='form-group'>
+        <%= f.label :name %><br>
         <%= f.text_field :name, :autofocus => true, class: 'form-control' %>
       </div>
-  </div>
-</div>
-<div class="form-group">
-     <div class="row">
-        <div class="col-lg-5">      
-        <%= f.label :school %>
+
+      <div class='form-group'>
+        <%= f.label :school %><br>
         <%= f.text_field :school, :autofocus => true, class: 'form-control' %>
       </div>
-  </div>
-</div>
-<div class="form-group">
-     <div class="row">
-        <div class="col-lg-5">      
-        <%= f.label :position %>
+      <div class='form-group'>
+        <%= f.label :position %><br>
         <%= f.text_field :position, :autofocus => true, class: 'form-control' %>
       </div>
-  </div>
-</div>
-<div class="form-group">
-     <div class="row">
-        <div class="col-lg-5">      
-        <%= f.label :email %>
-        <%= f.text_field :email, :autofocus => true, class: 'form-control' %>
+            <div class='form-group'>
+        <%= f.label :email %><br>
+        <%= f.email_field :email, :autofocus => true, class: 'form-control' %>
       </div>
-  </div>
-</div>
-<div class="form-group">
-     <div class="row">
-        <div class="col-lg-5">      
-        <%= f.label :password %> (Must be atleast 8 characters)
-        <%= f.password_field :password, class: 'form-control' %>
-      </div>
-  </div>
-</div>
 
-<div id="stripe_form">
+      <div class='form-group'>
+        <%= f.label :password %>(must be atleast 8 characters)<br>
+        <%= f.password_field :password, class: 'form-control' %>
+      </div>    
+
       <% if @user.stripe_card_token.present? %>
         Credit Card is on File
       <% else %>
-        <div class="form-group">
-             <div class="row">
-                <div class="col-lg-4"> 
-                  <%= label_tag :card_number, "Credit Card Number" %>
-                  <%= text_field_tag :card_number, nil, name: nil, class: 'form-control' %>
-                </div>
-              </div>
-            </div>
-      <div class="form-group">
-           <div class="row">
-              <div class="col-lg-3"> 
-                <%= label_tag :card_code, "Security Code on Card (CVV)" %>
-              <%= text_field_tag :card_code, nil, name: nil, class: 'form-control' %>
-                </div>
-            </div>
-          </div>
-            <div class="form-group">
-             <div class="row">
-                <div class="col-lg-4"> 
-                <%= label_tag :card_month, "Card Expiration" %>
-                <%= select_month nil, {add_month_numbers: true}, {name: nil, id: "card_month"} %>
-                <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, id: "card_year"} %>
-                </div>
-              </div>
-            </div>
-                
+        <div class='form-group'>
+          <%= label_tag :card_number, "Credit Card Number" %>
+          <%= text_field_tag :card_number, nil, name: nil, class: 'form-control' %>
+        </div>
+
+        <div class='form-group'>
+          <%= label_tag :card_code, "Security Code on Card (CVV)" %>
+        <%= text_field_tag :card_code, nil, name: nil %><br>
+        <%= label_tag :card_month, "Card Expiration" %><br>
+        <%= select_month nil, {add_month_numbers: true}, {name: nil, id: "card_month"} %>
+        <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, id: "card_year"} %>
+        </div>
+        
       <% end %>
 
       <div>
         <%= f.submit "Sign up", class: 'btn btn-primary' %>
       </div>
-      </div>
 
     <% end %>
-    <h3><small>By signing up you agree to our <a href="#" data-toggle="modal" data-target="#terms-modal" class="btn-default">Terms of Use</a> and <a href="#" data-toggle="modal" data-target="#privacy-modal" class="btn-default">Privacy Policy</a></small></h3>
-
-<div class="modal fade" id="terms-modal">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Terms of Use</h4>
-      </div>
-      <div class="modal-body clearfix">
-            <div id="modal-left" class="pull-left">
-                <p><strong>Member Acceptance</strong></p>
-                <p> <%= render 'pages/terms' %></p>
-            </div>  
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="modal fade" id="privacy-modal">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Privacy Policy</h4>
-      </div>
-      <div class="modal-body clearfix">
-            <div id="modal-left" class="pull-left">
-                <p> <%= render 'pages/privacy' %></p>
-            </div>
-           
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
   </div>
   <div class='panel-footer'>
     <%= render "devise/shared/links" %>
   </div>
 </div>
 </div>
-</div>
-</section>
-

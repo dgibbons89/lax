@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-
-
   resources :charges
+  resources :lessons
+
+
+ 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   mount StripeEvent::Engine => '/stripe-webhooks'
@@ -18,28 +20,33 @@ Rails.application.routes.draw do
     put 'cancel_plan', to: 'users/registrations#cancel_plan'
   end
 
-  resources :lessons
 
+root 'lessons#index'
   
 
+  get 'pricing' => 'pages#pricing'
+  get 'thanks' => 'pages#thanks'
+  get 'home' => 'pages#home'
 
 
-  get 'pages/home' => 'pages#home'
-  get 'pages/academic' => 'pages#academic'
+
+
+  get 'academic' => 'pages#academic'
 
   get 'pages/faq' => 'pages#faq'
   get 'pages/terms' => 'pages#terms'
   get 'pages/privacy' => 'pages#privacy'
-  get 'pages/film' => 'pages#film'
-  get 'users/index'
-  get 'pricing' => 'pages#pricing'
+  get 'film' => 'pages#film'
+
+ 
 
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-   root 'lessons#index'
+   
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

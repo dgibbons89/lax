@@ -8,7 +8,7 @@
         
         <div class="panel-body"> 
           <h1><%= lesson.title %></h1>
-          <h3>Cheffed up by <%= lesson.instructor %></h3>
+          <h3>Instructor <%= lesson.instructor %></h3>
           
           
           <%= link_to "Watch Lesson", lesson_path(lesson), class: "btn btn-default btn-lg" %> 
@@ -24,3 +24,7 @@
 
 </div>
 
+
+      <% if current_user.try(:admin?) %>
+        <%= link_to 'New Lesson', new_lesson_path %>
+      <% end %>
