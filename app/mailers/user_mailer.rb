@@ -1,11 +1,13 @@
 class UserMailer < ActionMailer::Base
-  layout 'user_mailer'
+
   default from: "Telos Lax <dg@teloslax.com>"
 
 
-  def new_user user
-    @user = user
-    mail to: user.email, subject: "Thanks for signing up!"
+  def new_user(user_name, email)
+    @user_name = user_name
+    @email = email
+
+    mail to: "Dean Gibbons <dg@teloslax.com>", subject: "New User: #{email}"
   end
   
   # Invoice payment succeeded
