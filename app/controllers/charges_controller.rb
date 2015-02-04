@@ -7,24 +7,28 @@ class ChargesController < ApplicationController
   def create
     # Amount in cents
     @amount = 2000
+    token = params[:stripeToken]
 
     customer = Stripe::Customer.create(
+      
       :email => current_user.email,
-      :card  => params[:stripeToken]
+      :description => current_user.name,
+      :card => token,
+      :plan => "monthly",
     )
 
-    charge = Stripe::Charge.create(
-      :customer    => customer.id,
-      :amount      => @amount,
-      :description => 'Extra access charge',
-      :currency    => 'usd'
-    )
+
 
     current_user.update_attribute(:extra_access, true)
-    redirect_to lessons_path
+    redirect_to thanks_path
+    
 
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to charges_path
   end
+
+
+
+
 end

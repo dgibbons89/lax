@@ -9,6 +9,12 @@ class UserMailer < ActionMailer::Base
 
     mail to: "Dean Gibbons <dg@teloslax.com>", subject: "New User: #{email}"
   end
+  def delete_user(user_name, email)
+    @user_name = user_name
+    @email = email
+
+    mail to: "Dean Gibbons <dg@teloslax.com>", subject: "Remove Stripe User: #{email}"
+  end
   
   # Invoice payment succeeded
   def invoice_payment_succeeded(recipient_email, recipient_name, amount)

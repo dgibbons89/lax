@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :categories
+
   resources :charges
   resources :lessons
 
@@ -10,18 +12,11 @@ Rails.application.routes.draw do
 
 
 
-  devise_for :users, :controllers => { :registrations => 'users/registrations'}
-  devise_scope :user do
-    # get 'signup/free', to: 'users/registrations#new_free'
-    get 'subscribe', to: 'users/registrations#subscribe'
-    put 'update_plan', to: 'users/registrations#update_plan'
-    put 'update_card', to: 'users/registrations#update_card'
-    put 'update_both', to: 'users/registrations#update_both'
-    put 'cancel_plan', to: 'users/registrations#cancel_plan'
-  end
+  devise_for :users, :controllers => {:registrations => "registrations"}
 
 
-root 'lessons#index'
+
+  root 'lessons#index'
   
 
   get 'pricing' => 'pages#pricing'

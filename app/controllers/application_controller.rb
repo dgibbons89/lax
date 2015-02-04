@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def after_sign_in_path_for(resource)
-    root_path
+    lessons_path
   end
 
   def require_admin
@@ -21,6 +21,7 @@ class ApplicationController < ActionController::Base
       redirect_to root_path
     end
   end
+
 
   # def configure_permitted_parameters
   #   # devise_parameter_sanitizer.for(:sign_up) << :stripe_card_token

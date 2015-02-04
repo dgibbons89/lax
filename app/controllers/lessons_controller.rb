@@ -8,7 +8,12 @@ class LessonsController < ApplicationController
   # GET /videos
   # GET /videos.json
   def index
-    @lessons = Lesson.all.order("created_at DESC")
+    if params[:category].blank?
+      @lessons = Lesson.all.order("created_at DESC")
+    else
+      @category_id = Category.find_by(name: params[:category]).id
+      @lessons = Lesson.where(category_id: @category_id).order("created_at DESC")  
+    end
   end
 
   # GET /videos/1
@@ -82,8 +87,8 @@ class LessonsController < ApplicationController
     def check_permission
       if user_signed_in?
         # User needs to have paid for extra_access or be subscribed
-        if !current_user.extra_access && current_user.plan.blank?
-          redirect_to subscribe_path, notice: "You need to be subscribed to access this content"
+        if !current_user.extra_access
+          redirect_to new_charge_path, notice: "You need to be subscribed to access this content"
         end
       else
         # User needs to be signed in first
@@ -94,6 +99,6 @@ class LessonsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
   def lesson_params
-      params.require(:lesson).permit(:title, :description, :instructor, :url, :music)
+      params.require(:lesson).permit(:title, :description, :instructor, :url, :music, :category_id)
     end
 end

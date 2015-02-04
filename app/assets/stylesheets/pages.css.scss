@@ -38,6 +38,10 @@
     font-family: 'Open Sans',sans-serif;
     font-size: 33px;
   }
+  h3 {
+    font-family: "TradeGothicLTPro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    
+  }
   .btn-default {
     background-color: #37ba67;
     text-decoration: none;
@@ -48,7 +52,7 @@
     margin-right: 0rem;
     font-family: "TradeGothicLTPro", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 450;
-    margin-top: 50px;
+    margin-top: 20px;
     border-radius: 0px;
 /*    background-color: #2e4051;
 */  }
@@ -92,42 +96,15 @@
 */  }
 }
 
-.pricing-tier {
+.pricing {
   font-family: "TradeGothicLTPro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 17px;
+
   
-  h4 {
-    
-    
-    font-size: 21px;
-  }
-  h5 {
-    font-size: 18px;
-    
-  }
-  li {
-    padding-left: 32%;
-    text-align: left;
-    font-size: 17px;
-  }
-
-  .check {
-    
-    list-style-position: inside;
-    font-size: 15px;
-    line-height: 1.5;
-  }
-
-  .btn-default {
-    background-color: #37ba67;
-    
-    color: #fff;
-    font-size: 22px;
-    padding: 12px 55px;
-    margin-right: 0rem;
-    font-family: "TradeGothicLTPro", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-weight: 450;
-    margin-top: 50px;
-    border-radius: 0px;
-/*    background-color: #2e4051;
-*/  }
+ li {
+  margin-left: 200px;
+  list-style: url(image-path('checkmark.png'));
+  text-align: left;
+  line-height: 25px;
+ }
 }

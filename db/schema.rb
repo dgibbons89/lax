@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150129162719) do
+ActiveRecord::Schema.define(version: 20150204023538) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -46,6 +46,12 @@ ActiveRecord::Schema.define(version: 20150129162719) do
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
 
+  create_table "categories", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "lessons", force: true do |t|
     t.string   "title"
     t.text     "description"
@@ -54,6 +60,7 @@ ActiveRecord::Schema.define(version: 20150129162719) do
     t.datetime "updated_at"
     t.string   "url"
     t.string   "music"
+    t.integer  "category_id"
   end
 
   create_table "roles", force: true do |t|
@@ -80,18 +87,12 @@ ActiveRecord::Schema.define(version: 20150129162719) do
     t.string   "last_sign_in_ip"
     t.string   "name"
     t.string   "school"
-    t.integer  "age"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.date     "birthday"
     t.string   "position"
-    t.string   "stripe_card_token"
     t.string   "customer_id"
-    t.string   "last_4_digits"
-    t.string   "plan"
     t.boolean  "extra_access",           default: false
     t.boolean  "admin",                  default: false
-    t.decimal  "amount"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

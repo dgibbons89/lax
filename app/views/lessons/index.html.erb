@@ -1,30 +1,50 @@
 <%= render 'pages/home' unless user_signed_in? %>
 
-<div class="max-width has-padding center">
 
+
+<section class="category">
+    <div class="container">
+    <div class="row">
+      <div class=".col-xs-12 .col-sm-6 .col-md-4">
+
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Browse Instructors <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <% Category.all.each do |category| %>
+                <li><%= link_to category.name, lessons_path(category: category.name) %></li>
+            <% end %>
+          </ul>
+        </li>
+    </div>
+  </div>
+</div>
+</section>
+
+
+
+<div class="max-width has-padding center">
   <div id="lessons">
     <% @lessons.each do |lesson| %>
       <div class="box panel panel-default">
-        
         <div class="panel-body"> 
           <h1><%= lesson.title %></h1>
-          <h3>Instructor <%= lesson.instructor %></h3>
-          
-          
-          <%= link_to "Watch Lesson", lesson_path(lesson), class: "btn btn-default btn-lg" %> 
+          <h3>Instructor:  <%= lesson.instructor %></h3>
+          <h6>Music: <%= lesson.music %> </h6>
+          <h5>Notes:<%= lesson.description %></h5>
+             <a href="//fast.wistia.net/embed/iframe/<%= lesson.url %>?popover=true" class="wistia-popover[height=422,playerColor=4ee500,width=750]">Watch Video</a>
+            <script charset="ISO-8859-1" src="//fast.wistia.com/assets/external/popover-v1.js"></script> 
 
-
-          
-        
+          <div class="center">
+            <% if current_user.try(:admin?) %>
+                    <%= link_to 'Edit', edit_lesson_path(lesson) %>
+                    <%= link_to 'Destroy', lesson, method: :delete, data: { confirm: 'Are you sure?' } %>
+                    <%= link_to 'New Lesson', new_lesson_path %>
+                    <% end %>
+          </div>
         </div>
       </div>
     <% end %>
-      
   </div>
-
 </div>
 
 
-      <% if current_user.try(:admin?) %>
-        <%= link_to 'New Lesson', new_lesson_path %>
-      <% end %>

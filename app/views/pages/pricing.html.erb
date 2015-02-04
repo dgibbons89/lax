@@ -15,15 +15,13 @@
 </div>
     
 
-<section class="pricing-tier">
-  <div class="container has-padding">
-
+<section class="pricing">
+  <div class="max-wide has-padding center">
     <div class="row">
-      <div class="content col-md-12 col-sm-12 col-xs-12 text-center">
-        <div class="thumbnail">
-          
-          <ul class="check">
-                      <li>High Quality Lessons From The Pros</li>
+      <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+
+          <ul>
+                     <li> High Quality Lessons From The Pros</li>
                       <li>Tailored Instruction To Your Position</li>
                       <li>Tips and Explanations To Increase Lax IQ</li>
                       <li>Exercises to Increase Your Athleticism</li>
@@ -33,22 +31,19 @@
                       <li>Email Support 7 Days a Week</li>
                       <li>Mentorship From Players &amp; Coaches</li>
           </ul>
-          <div class="center">
-            <%= link_to "Monthly Plan ", new_user_registration_path(plan: "monthly"), class: "btn btn-lg btn-default center" %>
-            <h4>$20/month</h4>
-            <h5>Billed Monthly</h5>
-          </div>
-          <div class="center">
 
-            <%= link_to "Yearly Plan", new_user_registration_path(plan: "yearly"), class: "btn btn-lg btn-default center" %>
-            <h4>$16/month </h4>
-            <h5>Billed Yearly  20% OFF!</h5>    
-          </div>
+
+
         </div>
       </div>
       </div>
-  
+</section>
 
 
+<section class="action">
+  <div class="max-width has-padding center">
+            <h3>Monthly Membership </h3>
+            <h4>$20/Month</h4>  
+            <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-lg btn-default center", data: { no_turbolink: true } %>
   </div>
 </section>
