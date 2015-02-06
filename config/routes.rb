@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   root 'lessons#index'
   
 
-  get 'pricing' => 'pages#pricing'
+  
   get 'thanks' => 'pages#thanks'
   get 'home' => 'pages#home'
 

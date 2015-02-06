@@ -1,20 +1,58 @@
 
-<div class="wide has-padding">
+<div class="max-width has-padding center"> 
+<div class="trigger">
+    <h1 class="btn btn-default btn-primary"><a class="scrollto" href="#register">$20 MONTHLY MEMBERSHIP</a></h1>
+</div>
+</div>
+   
+
+<section class="pricing">
+  <div class="max-width has-padding center">
+      <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+          <ul>
+                     <li> High Quality Lessons From The Pros</li>
+                      <li>Tailored Instruction To Your Position</li>
+                      <li>Tips and Explanations To Increase Lax IQ</li>
+                      <li>Exercises To Increase Your Athleticism</li>
+                      <li>Performance Review &amp; Feedback</li>
+                      <li>Direct Access To Online Tutor</li>
+                      <li>Email Support 7 Days a Week</li>
+                      <li>Mentorship From Players &amp; Coaches</li>
+          </ul>
+        </div>
+    </div>
+</section>
+
+<div class="max-width has-padding center">
+<div class="row">
+      <div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-4 col-xs-offset-4">
+        <h4 class="text-center">Step 1 of 2</h4>
+          <div class="progress">
+            <div class="progress-bar progress-bar-signup" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%;">
+            </div>
+        </div>
+      </div>
+</div>
+</div>
+
+
+<section id="register">
+  <div class="wide has-padding">
         <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3>Sign Up</h3>
+          <div class="panel center">
+            <h3>Enter Your Information</h3>
           </div>
 
           <div class="panel-body">
-
+             
             <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-              <%= devise_error_messages! %><br>
+              <%= devise_error_messages! %>
 
               <div class="form-group">
                 <div class="row">
                   <div class="col-md-12 col-xs-12">
                    <%= f.label :name %>
-                   <%= f.text_field :name, autofocus: true, class: "form-control", placeholder: 'John Doe' %>
+                   <%= f.text_field :name, autofocus: true, class: "form-control", placeholder: 'e.g. John Doe' %>
                  </div>
                 </div>
               </div>
@@ -22,7 +60,7 @@
                 <div class="row">
                   <div class="col-md-12 col-xs-12">
                    <%= f.label :position %>
-                   <%= f.text_field :position, autofocus: true, class: "form-control", placeholder: 'Attack' %>
+                   <%= f.text_field :position, autofocus: true, class: "form-control", placeholder: 'e.g. Attack' %>
                  </div>
                 </div>
               </div>
@@ -30,7 +68,7 @@
                 <div class="row">
                   <div class="col-md-12 col-xs-12">
                    <%= f.label :school %>
-                   <%= f.text_field :school, autofocus: true, class: "form-control", placeholder: 'Delbarton' %>
+                   <%= f.text_field :school, autofocus: true, class: "form-control", placeholder: 'e.g. Delbarton' %>
                  </div>
                 </div>
               </div>                            
@@ -39,7 +77,7 @@
                 <div class="row">
                   <div class="col-md-12 col-xs-12">
                     <%= f.label :email %>
-                    <%= f.email_field :email, class: "form-control", placeholder: 'johndoe@test.com' %>
+                    <%= f.email_field :email, class: "form-control", placeholder: 'e.g. johndoe@test.com' %>
                   </div>
                 </div>
               </div>
@@ -47,26 +85,23 @@
               <div class="form-group">
                 <div class="row">
                   <div class="col-md-10 col-xs-12">
-                    <%= f.label :password %><i>(minimum 8 characters)</i>
-                    <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: 'Password' %>
+                    <%= f.label :password %>
+                    <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: 'must be at least 8 characters' %>
                   </div>
                 </div>
               </div>
-              <br>
-              <div class="form-group">
-                <div class="row">
-                  <div class="col-md-10 col-xs-12">
-                  <%= f.submit "Create Your Account", class: "btn  btn-default btn-lg" %>
-                  </div>
-                </div>
+              </div>
+           
+
+           
+              <div class="panel-footer center">
+                  <%= f.submit "Create Your Account", class: "btn btn-lg btn-primary" %>
               </div>
             <% end %>
-
-            <div class="panel-footer">
-              <%= render "devise/shared/links" %>
-            </div>
-
-          </div>
-        </div>
-      </div>
+       
+    
+       
+    </div>
+</div>
+</section>
 

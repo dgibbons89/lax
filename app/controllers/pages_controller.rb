@@ -12,8 +12,7 @@ class PagesController < ApplicationController
   end
   def film
   end
-  def pricing
-  end
+
   def thanks
   end
     
