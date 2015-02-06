@@ -20,6 +20,7 @@ class ChargesController < ApplicationController
 
 
     current_user.update_attribute(:extra_access, true)
+    UserMailer.invoice_payment_succeeded(current_user.email, current_user.name).deliver
     redirect_to thanks_path
     
 
