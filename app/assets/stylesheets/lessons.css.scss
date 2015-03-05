@@ -12,12 +12,21 @@ h5 {
 }
 
 
-.academics {
+#academics {
 	font-family: "TradeGothicLTPro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+p {
+	font-size:  17px;
+}
 }
 
 .category {
 	font-size: 20px;
 	list-style: none;
 	text-decoration: none;
+}
+
+#film  { p {
+	font-size: 18px;
+	font-weight: 300;
+}
 }
