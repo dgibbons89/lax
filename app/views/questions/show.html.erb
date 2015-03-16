@@ -10,6 +10,10 @@
 
 
 	<p><strong>Question:</strong><%= @question.post %></p>
+	                        <% if (@question.user == current_user) || (current_user.admin?) %>
+                        <%= link_to "Edit", edit_question_path(@question) %>
+                        <%= link_to "Delete", question_path(@question), method: :delete %>
+                      <% end %>
 
 	<p><%= link_to "Know the answer? Post it.", new_question_answer_path(@question), class: "btn btn-primary" %></p>
 

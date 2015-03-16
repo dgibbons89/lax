@@ -7,7 +7,7 @@ class QuestionsController < ApplicationController
   # GET /questions
   # GET /questions.json
   def index
-    @questions = Question.order('created_at DESC').paginate(page: params[:page], per_page: 20)
+    @questions = Question.order('created_at DESC')
   end
 
   # GET /questions/1
@@ -23,6 +23,7 @@ class QuestionsController < ApplicationController
 
   # GET /questions/1/edit
   def edit
+    
   end
 
   # POST /questions
