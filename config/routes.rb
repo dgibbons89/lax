@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :questions do 
+    resources :answers, except: [:show, :index]
+  end
+
   resources :categories
 
   resources :charges

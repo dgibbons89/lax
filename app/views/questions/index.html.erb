@@ -1,0 +1,40 @@
+<div class="max-width has-padding">
+        <div class="panel panel-default">
+          <div class="panel center">
+            <h3>Welcome to the Academic Community!</h3>
+          </div>
+
+          <div class="panel-body">
+            The Academic forum is here to help you with education. Need help outlining an essay? Or have a general question about a specific Math topic? Just post a question. If another member can't answer it. We'll have an Ivy-League Graduate take care of it for you. 
+        </div>
+  </div>
+<div>
+   
+
+    <div class="center">
+          <%= link_to 'Ask New Question', new_question_path, class: "btn btn-primary btn-lg" %> 
+    </div><br>
+    
+
+  <div class="panel panel-default">
+    <div class="panel center">
+      <h3>Most Recently Asked Question</h3>
+    </div>
+
+    <div class="panel-body">  
+        <% @questions.each do |question| %>
+          <div class="question-each">
+            <h4>
+              <%= link_to question do %>
+                Subject: <%= question.subject %><br>
+                Question: <%= question.post %>
+              <% end %>
+            </h4>
+            <span id="time"> <%= "Posted #{time_ago_in_words(question.created_at)} ago" %></span> 
+            <br>
+          </div>
+        <% end %>
+    </div>
+        
+  </div>
+</div>

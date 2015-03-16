@@ -46,14 +46,16 @@ class UserMailer < ActionMailer::Base
     email_with_name = "#{recipient_name} <#{recipient_email}>"
     mail to: email_with_name, subject: "Telos Lax subscription cancelled"
   end
+  def question_notification(asker, subject, post)
+    @asker = asker
+    @subject = subject
+    @post = post
+
+    mail  to: "Dean Gibbons <dg@teloslax.com>",
+          
+          subject: "#{asker} posted a new question on Telos"
+  end
   
-  
-
-
-
-
-  # SUSIE NOTIFICATIONS
-  # New free membership is created
 
 
   # New paid subscription is created
