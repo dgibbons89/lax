@@ -3,12 +3,25 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .lessons {
 	font-family: "TradeGothicLTPro", "Helvetica Neue", Helvetica, Arial, sans-serif;
-	text-align: left;
+	text-align: center;
 h5 {
 	text-align: left;
 } h6{
 	text-align: left;
 }
+  a {
+     background-color: #6e6e6e;
+    text-decoration: none;
+    
+    color: #fff;
+    font-size: 22px;
+    padding: 12px 55px;
+    margin-right: 0rem;
+    
+    font-weight: 450;
+    margin-top: 20px;
+    border-radius: 0px;
+  }
 }
 
 
