@@ -122,8 +122,8 @@ font-size: 15px;
 }
 .team .overview .summary {
   margin-bottom: 30px;
-  padding-left: 5%;
-  padding-right: 5%;
+  padding-left: 2%;
+  padding-right: 2%;
 
 }
 .team .overview .summary li {
@@ -288,6 +288,7 @@ text-align: center;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  background-position: center;
   background-image: url(image-path('Harvard.jpg'));
   h2 {
     padding-top: 20%;
