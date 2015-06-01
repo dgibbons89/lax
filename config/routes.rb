@@ -26,13 +26,14 @@ Rails.application.routes.draw do
   
   get 'thanks' => 'pages#thanks'
   get 'home' => 'pages#home'
+  
 
 
 
 
-  get 'academic' => 'pages#academic'
+  
 
-  get 'pages/faq' => 'pages#faq'
+  
   get 'pages/terms' => 'pages#terms'
   get 'pages/privacy' => 'pages#privacy'
   get 'film' => 'pages#film'

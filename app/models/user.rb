@@ -4,7 +4,18 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   
-  
+  after_create :send_welcome_email
+  after_destroy :delete_stripe 
+
+  def send_welcome_email
+    UserMailer.new_user(name, email).deliver
+  end
+
+  def delete_stripe
+    UserMailer.delete_user(name, email).deliver
+  end
+
+   
 
 
 

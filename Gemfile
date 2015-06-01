@@ -21,8 +21,11 @@ gem 'rolify'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'stripe_event'
 gem 'masonry-rails', '~>0.2.0'
+gem "mailchimp-api", '~> 2.0.4'
 gem 'wistia-api', '~> 0.2.3'
 gem 'activeadmin', github: 'gregbell/active_admin'
+gem 'will_paginate', '~> 3.0.6'
+gem 'will_paginate-bootstrap'
 
 ###add email in dev###
 gem 'letter_opener', group: :development
